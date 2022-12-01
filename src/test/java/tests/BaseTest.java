@@ -1,8 +1,9 @@
 package tests;
 
 import org.testng.annotations.*;
+import tests.utils.Listener;
 
-//@Listeners(Listener.class)
+@Listeners(Listener.class)
 public class BaseTest {
     protected Calculator calculator = new Calculator();
 
