@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main Suite" parallel="methods" thread-count="4">
+    <test name="Smoke">
+        <groups>
+            <define name="Smoke Group">
+                <include name="smoke"/>
+            </define>
+            <run>
+                <include name="Smoke Group"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.DivTest"/>
+        </classes>
+    </test>
+    <test name="Regression Test">
+        <groups>
+            <define name="Regression Group">
+                <include name="regression"/>
+            </define>
+            <run>
+                <include name="Regression Group"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.DivTest"/>
+        </classes>
+    </test>
+</suite>

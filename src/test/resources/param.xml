@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Main Suite">
-    <parameter name="login-value" value="user_1"></parameter>
-    <parameter name="psw-value" value="qwertyu"></parameter>
+    <parameter name="login-value" value="user_1"/>
+    <parameter name="psw-value" value="qwertyu"/>
+    <parameter name="firstNumber" value="32"/>
+    <parameter name="secondNumber" value="8"/>
     <test name="Smoke">
         <classes>
-            <class name="tests.ParamTest"></class>
+            <class name="tests.ParamTest"/>
+            <class name="tests.DivParametersTest"/>
         </classes>
     </test>
 </suite>
