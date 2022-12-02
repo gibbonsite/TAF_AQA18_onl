@@ -4,21 +4,21 @@
     <test name="Groups Test">
         <groups>
             <define name="Group 1">
-                <include name="smoke"></include>
+                <include name="smoke"/>
             </define>
             <define name="Group 2">
-                <include name="regression"></include>
+                <include name="regression"/>
             </define>
             <define name="Group 3">
-                <include name="smoke"></include>
-                <include name="regression"></include>
+                <include name="smoke"/>
+                <include name="regression"/>
             </define>
             <run>
-                <include name="Group 3"></include>
+                <include name="Group 3"/>
             </run>
         </groups>
         <classes>
-            <class name="tests.GroupsTest"></class>
+            <class name="tests.GroupsTest"/>
         </classes>
     </test>
 </suite>

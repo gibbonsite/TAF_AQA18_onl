@@ -51,7 +51,8 @@ public class CalculatorTest extends BaseTest {
     public void testSum8() throws InterruptedException {
         Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма ...");
     }
-    @Test(expectedExceptions = NullPointerException.class)
+
+    @Test (expectedExceptions = NullPointerException.class)
     public void exceptionTest() {
         List list = null;
         int size = list.size();

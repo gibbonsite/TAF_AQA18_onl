@@ -5,13 +5,15 @@
         <classes>
             <class name="tests.CalculatorTest">
                 <methods>
-                    <include name="testSum"></include>
+                    <include name="testSum"/>
                 </methods>
             </class>
+            <class name="tests.PriorityTest"/>
         </classes>
     </test>
     <test name="Regression Test">
         <classes>
+            <class name="tests.DependencyTest"/>
         </classes>
     </test>
 </suite>

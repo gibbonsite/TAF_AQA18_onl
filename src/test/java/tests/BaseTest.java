@@ -1,5 +1,6 @@
 package tests;
 
+import calculator.Calculator;
 import org.testng.annotations.*;
 import tests.utils.Listener;
 

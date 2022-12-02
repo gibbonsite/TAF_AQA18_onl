@@ -1,5 +1,6 @@
 package tests;
 
+import calculator.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.data.StaticProvider;
@@ -12,5 +13,4 @@ public class DataProviderTest {
     public void testSum(int a, int b, int expected) {
         Assert.assertEquals(calculator.sum(a, b), expected, "Неверная сумма ...");
     }
-
 }
