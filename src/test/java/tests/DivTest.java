@@ -16,6 +16,21 @@ public class DivTest extends BaseTest {
         Assert.assertEquals(calculator.div(30.0, 2.0), 15.0, "Incorrect division...");
     }
 
+    @Test(description = "Проверка знака целочисленного деления")
+    public void integerDivisionSignTest() {
+        Assert.assertEquals(calculator.div(30, -2), -15, "Incorrect division...");
+    }
+
+    @Test(testName = "Проверка знака вещественного деления")
+    public void firstDoubleDivisionSignTest() {
+        Assert.assertEquals(calculator.div(30.0, -2.0), -15.0, "Incorrect division...");
+    }
+
+    @Test(dependsOnMethods = {"firstDoubleDivisionSignTest"})
+    public void secondDoubleDivisionSignTest() {
+        Assert.assertEquals(calculator.div(-30.0, 2.0), -15.0, "Incorrect division...");
+    }
+
     @Test(groups = "smoke", priority = 1)
     public void divIntTest() {
         Assert.assertEquals(calculator.div(28, 4), 7, "Incorrect division...");
@@ -96,17 +111,17 @@ public class DivTest extends BaseTest {
     }
 
     @Test(groups = "smoke")
-    public void testDouble0by0() throws ArithmeticException {
+    public void testNaN() {
         Assert.assertEquals(calculator.div(0.0, 0.0), Double.NaN);
     }
 
     @Test(groups = "smoke")
-    public void testDoubleBy0() throws ArithmeticException {
+    public void testPositiveInfinity() {
         Assert.assertEquals(calculator.div(28.0, 0.0), Double.POSITIVE_INFINITY);
     }
 
     @Test(groups = "smoke")
-    public void testNegDoubleBy0() throws ArithmeticException {
+    public void testNegativeInfinity() {
         Assert.assertEquals(calculator.div(-28.0, 0.0), Double.NEGATIVE_INFINITY);
     }
 }
