@@ -49,11 +49,11 @@ public class LaminateCalculatorTest {
         driver.findElement(By.linkText("Рассчитать")).sendKeys(Keys.ENTER);
 
         Assert.assertEquals(driver.findElement(By.xpath(
-                "//div/div[contains(text(), 'Требуемое количество досок')]"))
+                "//div[contains(text(), 'Требуемое количество досок')]"))
                 .getText(), "Требуемое количество досок ламината: 53");
 
         Assert.assertEquals(driver.findElement(By.xpath(
-                "//div/div[contains(text(), 'Количество упаковок')]"))
+                "//div[contains(text(), 'Количество упаковок')]"))
                 .getText(), "Количество упаковок ламината: 7");
     }
 
