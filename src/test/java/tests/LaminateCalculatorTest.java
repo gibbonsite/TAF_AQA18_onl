@@ -2,6 +2,7 @@ package tests;
 
 import factory.BrowserFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -19,7 +20,7 @@ public class LaminateCalculatorTest {
     }
 
     @Test
-    public void calcRehauTest() throws InterruptedException {
+    public void calcRehauTest() {
         driver.get("https://calc.by/building-calculators/laminate.html");
 
         WebElement methodOfInstalling = driver.findElement(By.id("laying_method_laminate"));
@@ -45,15 +46,15 @@ public class LaminateCalculatorTest {
         WebElement laminateDirection1 = driver.findElement(By.id("direction-laminate-id1"));
         laminateDirection1.click();
 
-        driver.findElement(By.linkText("Рассчитать")).click();
+        driver.findElement(By.linkText("Рассчитать")).sendKeys(Keys.ENTER);
 
-        Assert.assertEquals(driver.findElement(By.xpath("(//div[contains(@class,'calc-result')]/div)[1]"))
-                        .getText(), "Требуемое количество досок ламината: 53");
+        Assert.assertEquals(driver.findElement(By.xpath(
+                "//div/div[contains(text(), 'Требуемое количество досок')]"))
+                .getText(), "Требуемое количество досок ламината: 53");
 
-        Assert.assertEquals(driver.findElement(By.xpath("(//div[contains(@class,'calc-result')]/div)[2]"))
+        Assert.assertEquals(driver.findElement(By.xpath(
+                "//div/div[contains(text(), 'Количество упаковок')]"))
                 .getText(), "Количество упаковок ламината: 7");
-
-        Thread.sleep(10000);
     }
 
     @AfterMethod
