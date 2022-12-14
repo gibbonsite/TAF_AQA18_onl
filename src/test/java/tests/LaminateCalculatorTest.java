@@ -20,7 +20,7 @@ public class LaminateCalculatorTest {
     }
 
     @Test
-    public void calcRehauTest() {
+    public void calcRehauTest() throws InterruptedException {
         driver.get("https://calc.by/building-calculators/laminate.html");
 
         WebElement methodOfInstalling = driver.findElement(By.id("laying_method_laminate"));
@@ -42,6 +42,8 @@ public class LaminateCalculatorTest {
         WebElement laminatePanelWidth = driver.findElement(By.id("wd_lam_id"));
         laminatePanelWidth.clear();
         laminatePanelWidth.sendKeys("200");
+
+        Thread.sleep(10);
 
         WebElement laminateDirection1 = driver.findElement(By.id("direction-laminate-id1"));
         laminateDirection1.click();
