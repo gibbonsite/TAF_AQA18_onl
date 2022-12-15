@@ -24,8 +24,10 @@ public class CheckoutSteps extends BaseStep {
         cataloguePage.getAddToCartSauceLabsFleeceJacketElement().click();
     }
 
-    public void proceedToCheckout() {
+    public CheckoutInformationPage proceedToCheckout() {
         cartPage.getCheckoutButton().click();
+
+        return checkoutInformationPage;
     }
 
     public CheckoutOverviewPage proceedToCheckoutOverview() {
@@ -34,7 +36,7 @@ public class CheckoutSteps extends BaseStep {
         checkoutInformationPage.getPostalCodeInput().sendKeys("220018");
         checkoutInformationPage.getContinueButton().click();
 
-        return new CheckoutOverviewPage(driver);
+        return checkoutOverviewPage;
     }
 
     public CheckoutCompletePage finishPayment() {
