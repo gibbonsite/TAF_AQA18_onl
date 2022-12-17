@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import services.WaitsService;
 
-import java.io.File;
 import java.util.List;
 
 public class ActionsTest extends BaseTest {
@@ -34,13 +32,13 @@ public class ActionsTest extends BaseTest {
         driver.get("http://the-internet.herokuapp.com/upload");
 
         WebElement fileUploadElement = waitsService.waitForExists(By.xpath("//input[@type='file']"));
-        String pathToFile = ActionsTest.class.getClassLoader().getResource("download.jpeg").getPath();
+        String pathToFile = ActionsTest.class.getClassLoader().getResource("upload.jpeg").getPath();
         System.out.println(pathToFile);
 
         fileUploadElement.sendKeys(pathToFile);
         waitsService.waitForVisibilityBy(By.id("file-submit")).submit();
 
         Assert.assertEquals(waitsService.waitForVisibilityBy(By.id("uploaded-files")).getText().trim(),
-                "download.jpeg");
+                "upload.jpeg");
     }
 }
