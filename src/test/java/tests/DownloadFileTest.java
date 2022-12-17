@@ -38,7 +38,7 @@ public class DownloadFileTest extends BaseTest {
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 String fileName = file.getName();
-                if (fileName.matches("sample.pdf")) {
+                if (fileName.equals("sample.pdf")) {
                     downloadedFile = file;
                     found = true;
                 }
