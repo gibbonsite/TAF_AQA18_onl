@@ -3,10 +3,8 @@ package tests;
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
@@ -33,7 +31,6 @@ public class DownloadFileTest extends BaseTest {
         // List the files on that folder
         File[] listOfFiles = folder.listFiles();
         boolean found = false;
-        File f = null;
         // Look for the file in the files
         for (File file : listOfFiles) {
             if (file.isFile()) {
