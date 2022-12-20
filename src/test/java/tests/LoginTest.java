@@ -20,7 +20,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(new DashboardPage(driver).isPageOpened());
     }
 
-    @Test
+    //@Test
     public void loginSuccessfulTest() {
         Assert.assertTrue(
                 userStep.loginSuccessful(ReadProperties.username(), ReadProperties.password())
@@ -37,7 +37,7 @@ public class LoginTest extends BaseTest {
         );
     }
 
-    @Test
+    //@Test
     public void addProjectTest() {
         userStep.loginSuccessful(ReadProperties.username(), ReadProperties.password());
         projectSteps.addProject("WP_01");

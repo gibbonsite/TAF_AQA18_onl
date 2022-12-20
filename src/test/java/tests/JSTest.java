@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class JSTest extends BaseTest {
 
-    @Test
+    //@Test
     public void jsTest() throws InterruptedException {
         driver.get("http://the-internet.herokuapp.com/jqueryui/menu#");
         WebElement webElement = driver.findElement(By.id("ui-id-2"));
@@ -25,7 +25,7 @@ public class JSTest extends BaseTest {
         s = (String) javascriptExecutor.executeScript("return arguments[0].value", w1);
     }
 
-    @Test
+    //@Test
     public void actionTest1() throws InterruptedException {
         driver.get("http://the-internet.herokuapp.com/drag_and_drop");
 
