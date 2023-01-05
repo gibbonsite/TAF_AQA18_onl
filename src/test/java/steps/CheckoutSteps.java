@@ -2,8 +2,10 @@ package steps;
 
 import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import pages.*;
+import pages.checkout.CheckoutCompletePage;
+import pages.checkout.CheckoutInformationPage;
+import pages.checkout.CheckoutOverviewPage;
 
 public class CheckoutSteps extends BaseStep {
     private CataloguePage cataloguePage;
