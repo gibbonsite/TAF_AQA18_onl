@@ -5,21 +5,24 @@ import factory.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import steps.ProjectSteps;
-import steps.UserStep;
+import steps.CheckoutSteps;
+import steps.NavigationSteps;
+import steps.UserSteps;
 
 public class BaseTest {
     protected WebDriver driver;
-    protected UserStep userStep;
-    protected ProjectSteps projectSteps;
+    protected UserSteps userStep;
+    protected NavigationSteps navigationSteps;
+    protected CheckoutSteps checkoutSteps;
 
     @BeforeMethod
     public void setUp() {
         driver = new BrowserFactory().getDriver();
         driver.get(ReadProperties.getUrl());
 
-        userStep = new UserStep(driver);
-        projectSteps = new ProjectSteps(driver);
+        userStep = new UserSteps(driver);
+        navigationSteps = new NavigationSteps(driver);
+        checkoutSteps = new CheckoutSteps(driver);
     }
 
     @AfterMethod
