@@ -1,6 +1,7 @@
 package pages.project;
 
 import baseEntities.BasePage;
+import elements.RadioButton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,5 +31,9 @@ public class AddProjectPage extends BasePage {
 
     public WebElement getNameInput() {
         return driver.findElement(nameInputLocator);
+    }
+
+    public RadioButton getType() {
+        return new RadioButton(driver, "suite_mode");
     }
 }
