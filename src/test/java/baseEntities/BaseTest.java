@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import services.WaitsService;
 import steps.ProjectSteps;
+import steps.ProjectTestCasesSteps;
 import steps.UserStep;
 import utils.InvokedListener;
 
@@ -19,6 +20,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected UserStep userStep;
     protected ProjectSteps projectSteps;
+    protected ProjectTestCasesSteps projectTestCasesSteps;
     protected WaitsService waitsService;
 
     @BeforeMethod
@@ -33,6 +35,7 @@ public class BaseTest {
 
         userStep = new UserStep(driver);
         projectSteps = new ProjectSteps(driver);
+        projectTestCasesSteps = new ProjectTestCasesSteps(driver);
     }
 
     @AfterMethod

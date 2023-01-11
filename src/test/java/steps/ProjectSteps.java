@@ -2,28 +2,21 @@ package steps;
 
 import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
-import pages.project.AddProjectPage;
+import pages.DashboardPage;
+import pages.project.testcases.ProjectTestCasesPage;
 
 public class ProjectSteps extends BaseStep {
-    private AddProjectPage addProjectPage;
+    private DashboardPage dashboardPage;
 
     public ProjectSteps(WebDriver driver) {
         super(driver);
 
-        addProjectPage = new AddProjectPage(driver);
+        dashboardPage = new DashboardPage(driver);
     }
 
-    public void addProject(String projectName) {
-        new NavigationSteps(driver).navigateToAddProjectPage();
-        addProjectPage.getNameInput().sendKeys(projectName);
-        addProjectPage.getAddProjectButton().click();
-    }
+    public ProjectTestCasesPage openProjectOverview(String projectName) {
+        dashboardPage.getProjectElement(projectName).click();
 
-    public void updateProject() {
-
-    }
-
-    public void deleteProject() {
-
+        return new ProjectTestCasesPage(driver);
     }
 }

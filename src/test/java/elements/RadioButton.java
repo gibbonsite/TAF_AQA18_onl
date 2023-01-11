@@ -36,6 +36,4 @@ public class RadioButton {
     public void selectByText(String value) {
         uiElementList.get(textList.indexOf(value)).click();
     }
-
-
 }

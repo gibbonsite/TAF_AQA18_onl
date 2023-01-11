@@ -27,5 +27,4 @@ public class LoginPage extends BasePage {
     public UIElement getEmailInput() { return new UIElement(driver, emailInputLocator);}
     public UIElement getPassword() { return new UIElement(driver, passwordInputLocator);}
     public UIElement getLogInButton() { return new UIElement(driver, logInButtonLocator); }
-    public UIElement getErrorTextElement() { return new UIElement(driver, errorTextLocator); }
 }
