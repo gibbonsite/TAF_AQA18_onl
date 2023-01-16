@@ -23,7 +23,7 @@ public class CheckBox {
     }
 
     private void click(boolean flag) {
-        if (flag != uiElement.isSelected()) {
+        if (flag != isSelected()) {
             uiElement.click();
         }
     }

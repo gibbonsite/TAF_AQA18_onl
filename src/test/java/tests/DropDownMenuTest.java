@@ -13,8 +13,8 @@ public class DropDownMenuTest extends BaseTest {
         projectTestCasesSteps.openProjectTestCases();
         AddTestCasePage page = projectTestCasesSteps.proceedToTestCaseCreation();
 
-        page.getType().dropDown();
-        page.getType().search("Acc");
         page.getType().selectByText("Acceptance");
+        page.getType().search("Acc");
+        page.getType().showMenu();
     }
 }

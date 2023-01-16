@@ -2,8 +2,6 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Wait;
 import services.WaitsService;
 
 import java.util.ArrayList;
@@ -32,7 +30,7 @@ public class DropDownMenu {
         }
     }
 
-    public void dropDown() {
+    public void showMenu() {
         if (!dropMenuElement.isDisplayed()) {
             uiElement.click();
             waitsService.waitForElementVisible(dropMenuElement);
@@ -40,11 +38,12 @@ public class DropDownMenu {
     }
 
     public void search(String searchText) {
-        dropDown();
+        showMenu();
         searchElement.sendKeys(searchText);
     }
 
     public void selectByText(String text) {
+        showMenu();
         menuElementList.get(menuList.indexOf(text)).click();
     }
 }
