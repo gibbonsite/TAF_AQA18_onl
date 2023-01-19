@@ -3,6 +3,7 @@ package models;
 public class User {
     private String firstname;
     private String lastname;
+    private String zipCode;
     private String email;
     private String password;
 
@@ -37,6 +38,12 @@ public class User {
             return this;
         }
 
+        public Builder withZipCode(String value) {
+            newUser.zipCode = value;
+
+            return this;
+        }
+
         public User build() {
             return newUser;
         }
@@ -56,5 +63,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getZipCode() {
+        return zipCode;
     }
 }

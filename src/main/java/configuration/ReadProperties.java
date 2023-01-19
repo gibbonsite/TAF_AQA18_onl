@@ -31,11 +31,11 @@ public class ReadProperties {
         return properties.getProperty("password");
     }
 
-    public static boolean isHeadless() {
-        return properties.getProperty("headless").equalsIgnoreCase("true");
+    public static long timeout() {
+        return Long.parseLong(properties.getProperty("timeout"));
     }
 
-    public static int timeout() {
-        return Integer.parseInt(properties.getProperty("timeout"));
+    public static boolean isHeadless() {
+        return properties.getProperty("headless").equalsIgnoreCase("true");
     }
 }
