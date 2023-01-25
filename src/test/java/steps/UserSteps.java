@@ -8,13 +8,11 @@ import pages.LoginPage;
 
 public class UserSteps extends BaseStep {
     private LoginPage loginPage;
-    private CheckoutSteps checkoutSteps;
 
-    public UserSteps(WebDriver driver, CheckoutSteps checkoutSteps) {
+    public UserSteps(WebDriver driver) {
         super(driver);
 
         this.loginPage = new LoginPage(driver);
-        this.checkoutSteps = checkoutSteps;
     }
 
     public void login(String userName, String password) {
@@ -26,6 +24,6 @@ public class UserSteps extends BaseStep {
     public CheckoutSteps loginSuccessful(User user) {
         login(user.getEmail(), user.getPassword());
 
-        return checkoutSteps;
+        return new CheckoutSteps(driver);
     }
 }
