@@ -12,7 +12,6 @@ import pages.DashboardPage;
 import pages.LoginPage;
 import pages.project.AddProjectPage;
 import steps.NavigationSteps;
-import steps.UserStep;
 
 public class LoginTest extends BaseTest {
 
