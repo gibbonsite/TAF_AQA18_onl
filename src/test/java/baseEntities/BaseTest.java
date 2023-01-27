@@ -7,11 +7,14 @@ import configuration.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
+import steps.UserSteps;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class BaseTest {
+    protected UserSteps userSteps;
 
     @BeforeSuite
     public void setUp() {
@@ -20,10 +23,10 @@ public class BaseTest {
         Configuration.browser = ReadProperties.browserName();
         Configuration.baseUrl = ReadProperties.getUrl();
         Configuration.timeout = 30000;
-        Configuration.fastSetValue = true;
-        //Configuration.assertionMode = AssertionMode.SOFT;
-        //Configuration.headless = true;
-        //Configuration.reportsFolder = "target/";
+
+        open("");
+
+        userSteps = new UserSteps();
     }
 
     @AfterMethod
