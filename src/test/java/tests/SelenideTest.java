@@ -65,7 +65,7 @@ public class SelenideTest extends BaseTest {
                 .shouldBe(empty)
                 .shouldBe(size(10))
                 .shouldHave(texts("text 1", "text 2", "text 3"))
-                .shouldHave(exactTexts(("text 1", "text 2", "text 3"));
+                .shouldHave(exactTexts("text 1", "text 2", "text 3"));
                 // textsInAnyOrder(...)
 
         $$(withText("All Projects"))
