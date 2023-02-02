@@ -4,10 +4,10 @@ import baseEntities.BaseCucumberTest;
 import configuration.ReadProperties;
 import io.cucumber.java.en.Then;
 
-public class SecondStepdefs extends BaseCucumberTest {
+public class SecondStepDefs extends BaseCucumberTest {
     private BaseCucumberTest baseCucumberTest;
 
-    public SecondStepdefs(BaseCucumberTest baseCucumberTest) {
+    public SecondStepDefs(BaseCucumberTest baseCucumberTest) {
         this.baseCucumberTest = baseCucumberTest;
     }
 

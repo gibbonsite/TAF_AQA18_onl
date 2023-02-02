@@ -25,7 +25,7 @@ public class FirstStepDefs extends BaseCucumberTest {
 
     @Given("открыт браузер")
     public void startBrowser() {
-        driver = new BrowserFactory().getDriver();
+        //driver = new BrowserFactory().getDriver();
     }
 
 /*
