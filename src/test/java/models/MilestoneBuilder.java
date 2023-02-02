@@ -8,6 +8,7 @@ import lombok.*;
 public class MilestoneBuilder {
     @EqualsAndHashCode.Exclude
     private int id;
+
     @NonNull
     private String name;
     private String references;

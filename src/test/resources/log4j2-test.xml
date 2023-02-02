@@ -20,7 +20,6 @@
             <AppenderRef ref="File" />
         </Logger>
         <Root level="ERROR">
-            <!--AppenderRef ref="ConsoleAppender"/-->
             <AppenderRef ref="ConsoleAppender"/>
         </Root>
     </Loggers>

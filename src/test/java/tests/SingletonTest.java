@@ -1,8 +1,11 @@
 package tests;
 
 import configuration.Singleton;
+import org.testng.annotations.Test;
 
 public class SingletonTest {
+
+    @Test
     public void test() {
         Singleton singleton1 = Singleton.getInstance("First");
         Singleton singleton2 = Singleton.getInstance("Second");

@@ -10,8 +10,10 @@ public class NavigationSteps extends BaseStep {
     }
 
     public AddProjectPage navigateToAddProjectPage() {
-        AddProjectPage addProjectPage = new AddProjectPage(driver);
-        addProjectPage.openPageByUrl();
-        return addProjectPage;
+
+        AddProjectPage page = new AddProjectPage(driver);
+        page.openPageByUrl();
+
+        return page;
     }
 }

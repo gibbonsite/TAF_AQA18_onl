@@ -65,11 +65,11 @@ public class Project {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
-        return type == project.type && showAnnouncement == project.showAnnouncement && Objects.equals(name, project.name) && Objects.equals(announcement, project.announcement);
+        return getType() == project.getType() && isShowAnnouncement() == project.isShowAnnouncement() && Objects.equals(getName(), project.getName()) && Objects.equals(getAnnouncement(), project.getAnnouncement());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, announcement, type, showAnnouncement);
+        return Objects.hash(getName(), getAnnouncement(), getType(), isShowAnnouncement());
     }
 }
