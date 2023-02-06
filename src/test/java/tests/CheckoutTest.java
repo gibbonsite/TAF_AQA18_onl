@@ -8,6 +8,8 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Condition.visible;
+
 public class CheckoutTest extends BaseTest {
     private Logger logger = LogManager.getLogger();
 
@@ -25,13 +27,13 @@ public class CheckoutTest extends BaseTest {
 
         logger.info("Pattern Chain of Invocations is implemented in test method in class CheckoutTest.");
 
-        Assert.assertTrue(
-                userSteps.loginSuccessful(user)
+        userSteps.loginSuccessful(user)
                 .addToCart()
                 .goToCartPage()
                 .proceedToCheckout()
                 .proceedToCheckoutOverview(user)
                 .finishPayment()
-                .isPageOpened());
+                .getCompleteHeaderElement()
+                .shouldBe(visible);
     }
 }
