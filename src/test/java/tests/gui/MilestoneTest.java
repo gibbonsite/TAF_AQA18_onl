@@ -1,4 +1,4 @@
-package tests;
+package tests.gui;
 
 import models.Milestone;
 import models.MilestoneBuilder;

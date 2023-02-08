@@ -1,4 +1,4 @@
-package tests;
+package tests.gui;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
@@ -56,12 +56,12 @@ public class LoginTest extends BaseTest {
     //@Test
     public void addProjectTest() {
         Project project = new Project();
-        project.setName("WP_01");
+        project.setNameA("WP_01");
         userStep.loginSuccessful(ReadProperties.username(), ReadProperties.password());
         projectSteps.addProject(project);
 
         Assert.assertEquals(driver.findElement(By.className("page_title")).getText(),
-                project.getName());
+                project.getNameA());
     }
 
     @Test
