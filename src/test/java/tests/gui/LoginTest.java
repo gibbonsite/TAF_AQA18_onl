@@ -4,7 +4,7 @@ import baseEntities.BaseTest;
 import configuration.ReadProperties;
 import io.qameta.allure.*;
 import models.Project;
-import models.User;
+import models.UserGUI;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -33,7 +33,7 @@ public class LoginTest extends BaseTest {
     @Link(name = "catalog", type = "mylink", url = "https://onliner.by")
     @Severity(SeverityLevel.BLOCKER)
     public void loginSuccessfulTest() {
-        User user = new User.Builder()
+        UserGUI user = new UserGUI.Builder()
                 .withEmail(ReadProperties.username())
                 .withPassword(ReadProperties.password())
                 .build();
@@ -56,12 +56,12 @@ public class LoginTest extends BaseTest {
     //@Test
     public void addProjectTest() {
         Project project = new Project();
-        project.setNameA("WP_01");
+        project.setName("WP_01");
         userStep.loginSuccessful(ReadProperties.username(), ReadProperties.password());
         projectSteps.addProject(project);
 
         Assert.assertEquals(driver.findElement(By.className("page_title")).getText(),
-                project.getNameA());
+                project.getName());
     }
 
     @Test

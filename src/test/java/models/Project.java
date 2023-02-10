@@ -7,19 +7,23 @@ import java.util.Objects;
 public class Project {
     @SerializedName(value = "name")
     private String nameA;
+
     private String announcement;
+
     @SerializedName(value = "suite_mode")
     private int type;
+
     @SerializedName(value = "show_announcement")
     private boolean showAnnouncement;
+
     private boolean deleted;
 
-    public String getNameA() {
+    public String getName() {
         return nameA;
     }
 
-    public void setNameA(String nameA) {
-        this.nameA = nameA;
+    public void setName(String name) {
+        this.nameA = name;
     }
 
     public String getAnnouncement() {
@@ -70,11 +74,11 @@ public class Project {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
-        return type == project.type && showAnnouncement == project.showAnnouncement && Objects.equals(nameA, project.nameA) && Objects.equals(announcement, project.announcement);
+        return getType() == project.getType() && isShowAnnouncement() == project.isShowAnnouncement() && Objects.equals(getName(), project.getName()) && Objects.equals(getAnnouncement(), project.getAnnouncement());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nameA, announcement, type, showAnnouncement);
+        return Objects.hash(getName(), getAnnouncement(), getType(), isShowAnnouncement());
     }
 }

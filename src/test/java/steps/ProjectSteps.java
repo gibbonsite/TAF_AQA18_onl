@@ -16,7 +16,7 @@ public class ProjectSteps extends BaseStep {
 
     public void addProject(Project project) {
         new NavigationSteps(driver).navigateToAddProjectPage();
-        addProjectPage.getNameInput().sendKeys(project.getNameA());
+        addProjectPage.getNameInput().sendKeys(project.getName());
         addProjectPage.getAddProjectButton().click();
     }
 
