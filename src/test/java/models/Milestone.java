@@ -1,16 +1,39 @@
 package models;
 
-import lombok.*;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Builder
+@EqualsAndHashCode
+@ToString
 public class Milestone {
     @EqualsAndHashCode.Exclude
     private int id;
-    @NonNull
+
+    @Expose
     private String name;
+
+    @Expose
+    @SerializedName("refs")
     private String references;
+
+    @Expose
     private String description;
-    @ToString.Exclude
+
+    @Expose
+    @SerializedName("due_on")
+    private int dueDate;
+
+    @Expose
+    @SerializedName("start_on")
+    private int startDate;
+
+    @Expose
+    @SerializedName("is_completed")
     private boolean completed;
 }
