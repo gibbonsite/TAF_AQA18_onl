@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
 public class MatchersTest {
+
     @Test
     public void twoStringsTest() {
         String a = "foo";
@@ -30,6 +31,7 @@ public class MatchersTest {
     public void givenAList_whenChecksSize_thenCorrect() {
         List<String> hamcrestMatchers = Arrays.asList(
                 "collections", "beans", "text", "number");
+
         assertThat(hamcrestMatchers, hasSize(4));
     }
 

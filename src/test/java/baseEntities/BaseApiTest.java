@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
+
     @BeforeTest
     public void setupApi() {
         RestAssured.baseURI = ReadProperties.getUrl();

@@ -7,38 +7,38 @@ public class UserGUI {
     private String password;
 
     public static class Builder {
-        private UserGUI newUser;
+        private UserGUI newUserGUI;
 
         public Builder() {
-            newUser = new UserGUI();
+            newUserGUI = new UserGUI();
         }
 
         public Builder withEmail(String value) {
-            newUser.email = value;
+            newUserGUI.email = value;
 
             return this;
         }
 
         public Builder withPassword(String value) {
-            newUser.password = value;
+            newUserGUI.password = value;
 
             return this;
         }
 
         public Builder withFirstname(String value) {
-            newUser.firstname = value;
+            newUserGUI.firstname = value;
 
             return this;
         }
 
         public Builder withLastname(String value) {
-            newUser.lastname = value;
+            newUserGUI.lastname = value;
 
             return this;
         }
 
         public UserGUI build() {
-            return newUser;
+            return newUserGUI;
         }
     }
 

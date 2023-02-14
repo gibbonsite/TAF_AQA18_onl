@@ -11,22 +11,21 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
 public class ReqresApiTest {
+
     @Test
     public void simpleStepByStepApiTest() {
         // Setup RestAssured
         RestAssured.baseURI = "https://reqres.in/";
 
         // Setup endpoint
-        int userId = 2;
-        String endpoint = "/api/users/" + userId;
+        int userID = 2;
+        String endpoint = "/api/users/" + userID;
 
         // Setup Request Object
         RequestSpecification httpRequest = given();
 
-        // Setup Response
+        // Setup Response Object
         Response response = httpRequest.request(Method.GET, endpoint);
-
-        System.out.println(response.body());
 
         int statusCode = response.getStatusCode();
         Assert.assertEquals(statusCode, 200);
@@ -37,13 +36,13 @@ public class ReqresApiTest {
     }
 
     @Test
-    public void simpleShortStepByStepApiTest() {
+    public void simpleShortApiTest() {
         // Setup RestAssured
         RestAssured.baseURI = "https://reqres.in/";
 
         // Setup endpoint
-        int userId = 2;
-        String endpoint = "/api/users/" + userId;
+        int userID = 2;
+        String endpoint = "/api/users/" + userID;
 
         given()
                 .when()

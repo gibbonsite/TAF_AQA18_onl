@@ -2,6 +2,7 @@ package tests.api;
 
 import adapters.ProjectAdapter;
 import baseEntities.BaseApiTest;
+import com.sun.source.tree.AssertTree;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import models.Project;
@@ -14,12 +15,10 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
-import static org.hamcrest.Matchers.is;
 
 public class TestRailApiTest1 extends BaseApiTest {
-    private int projectId;
-
-    private Project expectedProject;
+    int projectID;
+    Project expectedProject;
 
     @Test
     public void addProject1() {
@@ -33,11 +32,12 @@ public class TestRailApiTest1 extends BaseApiTest {
 
         given()
                 .body(String.format("{\n" +
-                                "  \"name\": \"%s\",\n" +
-                                "  \"announcement\": \"%s\",\n" +
-                                "  \"show_announcement\": %b,\n" +
-                                "  \"suite_mode\" : %d\n" +
-                                "}", expectedProject.getName(),
+                        "  \"name\": \"%s\",\n" +
+                        "  \"announcement\": \"%s\",\n" +
+                        "  \"show_announcement\": %b,\n" +
+                        "  \"suite_mode\" : %d\n" +
+                        "}",
+                        expectedProject.getName(),
                         expectedProject.getAnnouncement(),
                         expectedProject.isShowAnnouncement(),
                         expectedProject.getType()
@@ -47,7 +47,6 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
-
     }
 
     @Test
@@ -71,7 +70,6 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
-
     }
 
     @Test
@@ -79,7 +77,7 @@ public class TestRailApiTest1 extends BaseApiTest {
         String endpoint = "index.php?/api/v2/add_project";
 
         Project expectedProject = new Project();
-        expectedProject.setName("WP_Project_01");
+        expectedProject.setName("WP_Project_03");
         expectedProject.setAnnouncement("This is a description!!!");
         expectedProject.setType(1);
         expectedProject.setShowAnnouncement(true);
@@ -92,22 +90,21 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
-
     }
-
 
     @Test
     public void addProject3_1() {
         ProjectAdapter projectAdapter = new ProjectAdapter();
 
         Project expectedProject = new Project();
-        expectedProject.setName("WP_Project_01");
+        expectedProject.setName("WP_Project_03");
         expectedProject.setAnnouncement("This is a description!!!");
         expectedProject.setType(1);
         expectedProject.setShowAnnouncement(true);
 
         Project actualProject = projectAdapter.add(expectedProject);
         Assert.assertEquals(actualProject, expectedProject);
+
     }
 
     @Test
@@ -120,7 +117,7 @@ public class TestRailApiTest1 extends BaseApiTest {
         expectedProject.setType(1);
         expectedProject.setShowAnnouncement(true);
 
-        projectId = given()
+        projectID = given()
                 .body(expectedProject, ObjectMapperType.GSON)
                 .when()
                 .post(endpoint)
@@ -131,7 +128,7 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .jsonPath()
                 .getInt("id");
 
-        System.out.println(projectId);
+        System.out.println(projectID);
     }
 
     @Test
@@ -139,7 +136,7 @@ public class TestRailApiTest1 extends BaseApiTest {
         String endpoint = "index.php?/api/v2/add_project";
 
         expectedProject = new Project();
-        expectedProject.setName("WP_Project_04");
+        expectedProject.setName("WP_Project_05");
         expectedProject.setAnnouncement("This is a description!!!");
         expectedProject.setType(1);
         expectedProject.setShowAnnouncement(true);
@@ -154,24 +151,25 @@ public class TestRailApiTest1 extends BaseApiTest {
                 .extract()
                 .response();
 
-        projectId = response.getBody().jsonPath().get("id");
+        projectID = response.getBody().jsonPath().get("id");
 
-        Assert.assertEquals(response.getBody().jsonPath().getString("name"), expectedProject.getName());
+        Assert.assertEquals(response.getBody().jsonPath().getString("name"),
+                expectedProject.getName());
     }
 
     @Test(dependsOnMethods = "addProject5")
     public void readProject() {
         String endpoint = "index.php?/api/v2/get_project/{project_id}";
 
-        given()
-                .pathParam("project_id", projectId)
+        Response response =  given()
+                .pathParams("project_id", projectID)
                 .log().all()
-                .when()
+        .when()
                 .get(endpoint)
-                .then()
+        .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK)
-                .body("id", equalTo(projectId))
+                .body("id", equalTo(projectID))
                 .body("name", is(expectedProject.getName()))
                 .extract().response();
     }

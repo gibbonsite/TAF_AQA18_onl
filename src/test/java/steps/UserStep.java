@@ -30,8 +30,8 @@ public class UserStep extends BaseStep {
     }
 
     @Step
-    public DashboardPage loginSuccessful(UserGUI user) {
-        return loginSuccessful(user.getEmail(), user.getPassword());
+    public DashboardPage loginSuccessful(UserGUI userGUI) {
+        return loginSuccessful(userGUI.getEmail(), userGUI.getPassword());
     }
 
     public LoginPage loginIncorrect(String email, String psw) {

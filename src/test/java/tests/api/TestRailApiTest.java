@@ -17,11 +17,12 @@ public class TestRailApiTest extends BaseApiTest {
 
     @Test
     public void getAllUsers() {
-        String endpoint = "/index.php?/api/v2/get_users";
+        String endpoint = "index.php?/api/v2/get_users";
 
         RequestSpecification httpRequest = given();
         httpRequest.header(HTTP.CONTENT_TYPE, ContentType.JSON);
         httpRequest.auth().preemptive().basic(ReadProperties.username(), ReadProperties.password());
+
         Response response = httpRequest.request(Method.GET, endpoint);
 
         Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_OK);
@@ -31,7 +32,7 @@ public class TestRailApiTest extends BaseApiTest {
 
     @Test
     public void getAllUsers1() {
-        String endpoint = "/index.php?/api/v2/get_users";
+        String endpoint = "index.php?/api/v2/get_users";
 
         given()
                 .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())

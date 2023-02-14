@@ -12,5 +12,6 @@ public class BaseAdapter {
         gson = new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
                 .create();
+
     }
 }

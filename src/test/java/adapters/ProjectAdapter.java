@@ -3,12 +3,12 @@ package adapters;
 import io.restassured.mapper.ObjectMapperType;
 import models.Project;
 import org.apache.http.HttpStatus;
-import org.testng.annotations.Test;
 import utils.Endpoints;
 
 import static io.restassured.RestAssured.given;
 
-public class ProjectAdapter extends BaseAdapter {
+public class ProjectAdapter extends BaseAdapter  {
+
     public Project add(Project project) {
         String jsonBody = gson.toJson(project);
 

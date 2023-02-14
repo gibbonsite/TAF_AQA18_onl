@@ -22,6 +22,7 @@ public class User {
 
     @Expose
     private String email;
+
     private String password;
 
     @Expose

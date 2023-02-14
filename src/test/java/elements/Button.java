@@ -1,6 +1,5 @@
 package elements;
 
-import org.checkerframework.checker.guieffect.qual.UI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,4 +22,5 @@ public class Button {
     public boolean isEnabled() {
         return uiElement.isEnabled();
     }
+
 }

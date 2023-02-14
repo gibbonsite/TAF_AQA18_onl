@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class HttpClientTest {
+
     @Test
     public void simpleApiTest() throws IOException {
         String restUrl = "https://reqres.in/";

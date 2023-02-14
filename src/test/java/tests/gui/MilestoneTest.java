@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class MilestoneTest {
+
     @Test
     public void lombokTest1() {
         Milestone milestone1 = new Milestone();
@@ -18,8 +19,8 @@ public class MilestoneTest {
         milestone2.setName("ml_01");
         milestone2.setCompleted(true);
 
-        System.out.println(milestone1);
-        System.out.println(milestone2);
+        System.out.println(milestone1.toString());
+        System.out.println(milestone2.toString());
 
         Assert.assertTrue(milestone1.equals(milestone2));
     }
@@ -29,16 +30,18 @@ public class MilestoneTest {
         MilestoneBuilder milestone1 = MilestoneBuilder.builder()
                 .id(3)
                 .name("ml_02")
-                .completed(true)
+                .completed(false)
                 .build();
-
         MilestoneBuilder milestone2 = MilestoneBuilder.builder()
                 .id(2)
                 .name("ml_02")
-                .completed(true)
+                .completed(false)
                 .build();
 
+        var test = "String";
         System.out.println(milestone1.toString());
+
         Assert.assertTrue(milestone1.equals(milestone2));
     }
+
 }

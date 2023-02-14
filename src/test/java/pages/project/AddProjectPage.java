@@ -36,4 +36,4 @@ public class AddProjectPage extends BasePage {
     public RadioButton getType() {
         return new RadioButton(driver, "suite_mode");
     }
-}
+ }
