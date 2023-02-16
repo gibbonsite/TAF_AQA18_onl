@@ -19,7 +19,7 @@
                 level="INFO" additivity="false">
             <AppenderRef ref="File" />
         </Logger>
-        <Root level="ERROR">
+        <Root level="INFO">
             <AppenderRef ref="ConsoleAppender"/>
         </Root>
     </Loggers>
