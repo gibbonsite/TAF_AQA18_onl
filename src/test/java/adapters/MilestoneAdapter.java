@@ -9,9 +9,9 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class MilestoneAdapter extends BaseAdapter {
-    public int add(Milestone milestone, int projectId) {
+    public int add(Milestone milestone) {
         return given()
-                .pathParam("project_id", projectId)
+                .pathParam("project_id", milestone.getProjectId())
                 .body(milestone, ObjectMapperType.GSON)
                 .when()
                 .post(Endpoints.ADD_MILESTONE)

@@ -10,15 +10,15 @@ public class MilestonesTest extends BaseApiTest {
 
     @Test
     public void addMilestone() {
-        int projectId = 1;
         expectedMilestone = Milestone.builder()
                 .name("ML_Milestone_01")
                 .description("First milestone.")
+                .projectId(expectedProject.getId())
                 .dueDate(1677142800)
                 .startDate(1675933200)
                 .build();
 
-        milestoneId = milestoneAdapter.add(expectedMilestone, projectId);
+        milestoneId = milestoneAdapter.add(expectedMilestone);
     }
 
     @Test(dependsOnMethods = "addMilestone")
@@ -32,6 +32,7 @@ public class MilestonesTest extends BaseApiTest {
                 .id(milestoneId)
                 .name("ML_Milestone_02")
                 .description("First (updated) milestone.")
+                .projectId(expectedProject.getId())
                 .dueDate(1678784400)
                 .startDate(1676365200)
                 .build();

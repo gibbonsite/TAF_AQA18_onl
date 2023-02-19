@@ -19,6 +19,10 @@ public class Milestone {
     private String name;
 
     @Expose
+    @SerializedName("project_id")
+    private int projectId;
+
+    @Expose
     @SerializedName("refs")
     private String references;
 
